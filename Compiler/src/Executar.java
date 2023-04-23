@@ -1,7 +1,9 @@
-import functions.Ficheiro;
+import analysis.LexicalAnalysis;
+import functions.*;
 
 public class Executar {
     public static void main(String[] args) {
-        new Ficheiro(".\\docs\\main1.txt").lerficheiro(" ");
+        System.out.println("\033[2J");
+        new LexicalAnalysis(new Ficheiro(".\\docs\\programs\\main2.txt").lerficheiro(" ")).lexicalTable();
     }
 }
