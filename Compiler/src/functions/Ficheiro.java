@@ -18,7 +18,7 @@ public class Ficheiro {
         }
     }
 
-    //? Neste metodo ele lê o ficheiro e capta cada palavra desde que tenha um espaço vazio
+    //? Neste metodo ele lê o ficheiro e capta cada palavra
     public ArrayList<String> lerficheiro(String separador){
         StringTokenizer strT;
         var palavras  = new ArrayList<String>();
@@ -40,12 +40,8 @@ public class Ficheiro {
             br.close();
 
         } catch (IOException e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
-        for (String word : palavras) {
-            System.out.println(word);
-        }
-
         return palavras;
     }
 }
