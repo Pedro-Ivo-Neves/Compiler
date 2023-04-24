@@ -1,21 +1,29 @@
 package models;
 
 
-public abstract class Token_Model{
+public class Token_Model{
 
-    protected String token;
-    protected int lineIndex;
-    protected int columIndex;
+    private String token;
+    private int lineIndex;
+    private int columnIndex;
+    private String typeToken;
 
-    public Token_Model(String token, int lineIndex, int columIndex){
+    public Token_Model(String token, int lineIndex, int columnIndex){
         this.token = token;
         this.lineIndex = lineIndex;
-        this.columIndex = columIndex;
+        this.columnIndex = columnIndex;
     }
 
-    protected String getToken() {return this.token;}
+    public String getToken() {return this.token;}
 
-    protected int getLineIndex() {return this.lineIndex;}
+    public int getLineIndex() {return this.lineIndex;}
 
-    protected int getColumIndex() {return this.columIndex;}
+    public int getColumnIndex() {return this.columnIndex;}
+
+    protected Token_Model setTypeModel(String type){
+        this.typeToken = type;
+        return this;
+    }
+
+    public String getType(){return this.typeToken;}
 }

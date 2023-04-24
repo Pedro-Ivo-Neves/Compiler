@@ -2,20 +2,25 @@ package models;
 
 import analysis.exception.LexicalExcepction;
 
-public class SE_Model extends PR_Model{
+public class SE_Model extends Token_Model{
 
     private Object beforeToken;
 
-    public SE_Model(String token, int lineIndex, int columIndex) {
-        super(token, lineIndex, columIndex);
+    public SE_Model(String token, int lineIndex, int columnIndex) {
+        super(token, lineIndex, columnIndex);
+        setTypeModel("SE");
+    }
+
+    public SE_Model(Token_Model tm){
+        super(tm.getToken(), tm.getLineIndex(), tm.getColumnIndex());
+        setTypeModel("SE");
     }
 
     public SE_Model setBeforeToken(Object beforeToken){
         if (beforeToken instanceof VR_Model || beforeToken instanceof SE_Model || beforeToken instanceof TP_Model) {
             this.beforeToken = beforeToken;
         } else {
-            //TODO: Colocar uma messagem para a SE_Model Exception
-            throw new LexicalExcepction("");
+            throw new LexicalExcepction("Antes de um\033[32m Simbolo Especial\033[0m, espera-se uma \033[34mTP\033[0m ou um \033[36mVR\033[0m ou \033[32mSE\033[0m!\nA palavra: \033[31m"+super.getToken()+"\033[0m (linha:"+super.getLineIndex()+", coluna: "+super.getColumnIndex()+")");
         }
         return this;
     }
