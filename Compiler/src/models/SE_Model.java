@@ -1,6 +1,6 @@
 package models;
 
-import analysis.exception.LexicalExcepction;
+import analysis.exception.LexicalException;
 
 public class SE_Model extends Token_Model{
 
@@ -20,7 +20,7 @@ public class SE_Model extends Token_Model{
         if (beforeToken instanceof VR_Model || beforeToken instanceof SE_Model || beforeToken instanceof TP_Model) {
             this.beforeToken = beforeToken;
         } else {
-            throw new LexicalExcepction("Antes de um\033[32m Simbolo Especial\033[0m, espera-se uma \033[34mTP\033[0m ou um \033[36mVR\033[0m ou \033[32mSE\033[0m!\nA palavra: \033[31m"+super.getToken()+"\033[0m (linha:"+super.getLineIndex()+", coluna: "+super.getColumnIndex()+")");
+            throw new LexicalException("Antes de um\033[32m Simbolo Especial\033[0m, espera-se uma \033[34mTP\033[0m ou um \033[36mVR\033[0m ou \033[32mSE\033[0m!\nA palavra: \033[31m"+super.getToken()+"\033[0m (linha:"+super.getLineIndex()+", coluna: "+super.getColumnIndex()+")");
         }
         return this;
     }
