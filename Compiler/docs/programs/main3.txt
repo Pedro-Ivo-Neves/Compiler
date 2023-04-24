@@ -1,5 +1,5 @@
 public class Teste1 {
     public static void main ( ) {
-        int l = 0 ;
+        long int l = 0 ;
     }
 }
