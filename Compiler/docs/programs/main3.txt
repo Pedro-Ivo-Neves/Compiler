@@ -1,0 +1,5 @@
+public class Teste1 {
+    public static void main ( ) {
+        long int l = 0 ;
+    }
+}
