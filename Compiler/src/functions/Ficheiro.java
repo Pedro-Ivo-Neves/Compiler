@@ -69,7 +69,7 @@ public class Ficheiro {
                     token = strT.nextToken();
                     columnIndex = linha.indexOf(token);
 
-                    tokens.add(new Token_Model(token, linhaIndex, columnIndex));
+                    tokens.add(new Token_Model(token, linhaIndex, columnIndex+1));
                 }
 
                 linha = br.readLine();
