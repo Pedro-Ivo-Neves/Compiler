@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import constants.KeyWords;
 import models.Token_Model;
 
 public class Ficheiro {
@@ -21,7 +22,7 @@ public class Ficheiro {
     }
 
     //? Neste metodo ele lê o ficheiro e capta cada palavra
-    public ArrayList<String> lerficheiro(String separador){
+    public ArrayList<String> readFile(String separador){
         StringTokenizer strT;
         var palavras  = new ArrayList<String>();
 
@@ -47,40 +48,41 @@ public class Ficheiro {
         return palavras;
     }
 
-    //? Neste metodo ele lê o ficheiro e capta cada Token
-    public ArrayList<Token_Model> lerficheiro(){
-        StringTokenizer strT;
+    //? Neste metodo ele lê caracter por caracter
+    public ArrayList<Token_Model> readCode(){
+        var sb = new StringBuilder();
         var tokens  = new ArrayList<Token_Model>();
 
-        String token;
+        int linhaIndex = 1;
+        int colunaIndex;
 
         String linha;
-        int linhaIndex=1;
-        int columnIndex;
-        
+
         try {
-            
             linha = br.readLine();
 
             while(linha!=null){
-                strT = new StringTokenizer(linha, " ");
-                
-                while(strT.hasMoreTokens()){
-                    token = strT.nextToken();
-                    columnIndex = linha.indexOf(token);
 
-                    tokens.add(new Token_Model(token, linhaIndex, columnIndex+1));
+                for (char letra : linha.toCharArray()) {
+
+                    if(KeyWords.simbolosEspeciais.contains(letra)){
+
+                        
+
+                    }
+                    
                 }
 
-                linha = br.readLine();
-                linhaIndex++;
-            }
 
+                linhaIndex++;
+                linha = br.readLine();
+            }
             br.close();
 
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
         return tokens;
     }
 }

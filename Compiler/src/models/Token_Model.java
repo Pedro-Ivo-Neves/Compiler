@@ -12,6 +12,7 @@ public class Token_Model{
         this.token = token;
         this.lineIndex = lineIndex;
         this.columnIndex = columnIndex;
+        setTypeModel();
     }
 
     public String getToken() {return this.token;}
@@ -20,8 +21,8 @@ public class Token_Model{
 
     public int getColumnIndex() {return this.columnIndex;}
 
-    protected Token_Model setTypeModel(String type){
-        this.typeToken = type;
+    private Token_Model setTypeModel(){
+        this.typeToken = "";
         return this;
     }
 
