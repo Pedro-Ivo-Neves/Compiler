@@ -1,6 +1,7 @@
 package models;
 
 import analysis.exception.LexicalException;
+import models.*;
 
 public class SE_Model extends Token_Model{
 
