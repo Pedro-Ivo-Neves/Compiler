@@ -4,13 +4,16 @@ public enum Token_Enum {
     
     PR("Palavra Reservada"),
     TP("Tipo primitivo"),
-    SE("Simbolo Especial"),
+    // SE("Simbolo Especial"),
 
     DL("Delimitadores"),
     SL("Simbolos Logicos"),
-    CN("Constantes Naturais"),
+    SN("Simbolos Numericos"),
+    CN("Constantes Numericas"),
     CL("Constantes Logicas"),
-    CLI("Constantes Literarias");
+    CLI("Constantes Literarias"),
+
+    ID("Indicador");
 
     Token_Enum(String type){}
 }
