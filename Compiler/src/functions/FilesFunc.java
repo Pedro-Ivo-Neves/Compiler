@@ -1,7 +1,7 @@
 package functions;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.io.IOException;
 import java.util.*;
 import java.util.StringTokenizer;
@@ -10,6 +10,8 @@ import constants.KeyWords;
 import models.Token_Model;
 
 public class FilesFunc {
+
+    public static String programPath = ".\\docs\\programs\\";
 
     private BufferedReader br;
     
@@ -60,9 +62,11 @@ public class FilesFunc {
         int linhaIndex = 1;
         int colunaIndex;
 
+        int colunaUltimoChar=-1;
+
         String linha;
 
-        try {
+        try{
             linha = br.readLine();
 
             while(linha!=null){
@@ -73,6 +77,51 @@ public class FilesFunc {
                     colunaIndex++;
             
                     if(!sb.isEmpty()){ 
+
+                        if(sb.charAt(0)=='/'){
+
+                            if(sb.charAt(1)=='*'){
+                                
+                                if(colunaUltimoChar == linha.length()-1 && colunaUltimoChar>=1){
+                                    if(sb.charAt(sb.length()-1)=='*' && letra=='/'){
+                                        sb.setLength(0);
+                                    }
+                                    break;
+                                }
+
+                                if(letra=='*'){
+                                    sb.append(letra);
+                                    colunaUltimoChar=colunaIndex;
+                                }
+
+                                if(letra=='/'){
+                                    if(colunaUltimoChar==colunaIndex-1){
+                                        sb.setLength(0);
+                                    }
+
+                                    continue;
+                                }
+                                
+                            }
+
+                            if(letra=='/'){
+                                sb.setLength(0);
+                                break;
+                            }
+
+                            if(letra=='*'){
+                                sb.append(letra);
+                                continue;
+                            }
+
+                            if(KeyWords.constantesNumericas.contains(letra+"")){
+                                System.out.println("Palavra: "+sb.toString());
+                                tokens.add(new Token_Model(sb.toString(), linhaIndex, colunaIndex-1));
+                                sb.setLength(0);
+                                tokens.add(new Token_Model(letra+"", linhaIndex, colunaIndex));
+                                continue;
+                            }
+                        }
 
                         if(sb.charAt(0)=='\"'){
                             
@@ -88,12 +137,12 @@ public class FilesFunc {
 
                     
         
-                    if(KeyWords.simbolosEspeciais.contains(""+letra)){
+                    if(KeyWords.simbolosEspeciais.contains(""+letra) && letra!='/'){
                         if(!sb.isEmpty()){
                             tokens.add(new Token_Model(sb.toString(), linhaIndex, colunaIndex));
                             sb.setLength(0);
                         }
-                        tokens.add(new Token_Model(""+letra, linhaIndex, colunaIndex));
+                        tokens.add(new Token_Model(""+letra, linhaIndex, colunaIndex+1));
                         continue;
                     } else{
                         if (letra==' ' || colunaIndex==linha.length()-1) {
@@ -120,7 +169,6 @@ public class FilesFunc {
                 linhaIndex++;
                 linha = br.readLine();
             }
-            br.close();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
