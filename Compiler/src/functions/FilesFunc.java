@@ -25,7 +25,7 @@ public class FilesFunc {
 
 
 
-    //? Neste metodo ele lê o ficheiro e capta cada palavra
+    //? In this method it reads the file and captures each word
     public ArrayList<String> readFile(String separador){
         StringTokenizer strT;
         var palavras  = new ArrayList<String>();
@@ -54,7 +54,7 @@ public class FilesFunc {
 
 
 
-    //? Neste metodo ele lê caracter por caracter
+    //? In this method it reads character by character
     public LinkedList<Token_Model> readCode(){
         var sb = new StringBuilder();
         var tokens  = new LinkedList<Token_Model>();
@@ -78,6 +78,7 @@ public class FilesFunc {
             
                     if(!sb.isEmpty()){ 
 
+                        //* Here we validate the comments in the file
                         if(sb.charAt(0)=='/'){
 
                             if(sb.charAt(1)=='*'){
@@ -123,6 +124,7 @@ public class FilesFunc {
                             }
                         }
 
+                        //* Here we validate the constants literary
                         if(sb.charAt(0)=='\"'){
                             
                             sb.append(letra);
@@ -136,7 +138,7 @@ public class FilesFunc {
                     } 
 
                     
-        
+                    //* Catches a special symbol except the / characater
                     if(KeyWords.simbolosEspeciais.contains(""+letra) && letra!='/'){
                         if(!sb.isEmpty()){
                             tokens.add(new Token_Model(sb.toString(), linhaIndex, colunaIndex));
@@ -145,6 +147,7 @@ public class FilesFunc {
                         tokens.add(new Token_Model(""+letra, linhaIndex, colunaIndex+1));
                         continue;
                     } else{
+                        // *If it gets to the end of the line or the letter is a space
                         if (letra==' ' || colunaIndex==linha.length()-1) {
 
                             if(colunaIndex==linha.length()-1 && letra!=' '){
