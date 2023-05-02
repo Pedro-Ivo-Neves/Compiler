@@ -4,10 +4,10 @@ import constants.KeyWords;
 
 public class Token_Model{
 
-    private String token;
-    private int lineIndex;
-    private int columnIndex;
-    private Token_Enum typeToken;
+    protected String token;
+    protected int lineIndex;
+    protected int columnIndex;
+    protected Token_Enum typeToken;
 
     public Token_Model(String token, int lineIndex, int columnIndex){
         this.token = token;
