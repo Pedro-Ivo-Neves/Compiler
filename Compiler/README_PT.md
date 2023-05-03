@@ -1,6 +1,6 @@
 # Compilador
 
-Este é um projecto da faculdade que é para fazer um compilador do 0. A linguagem usada é `Java` e estou a fazer um compilador para a linguagem `Java`.
+Este é um projecto da faculdade que é para fazer um compilador do 0. A linguagem usada é **Java** e estou a fazer um compilador para a linguagem **Java**.
 
 <br>
 
@@ -10,15 +10,15 @@ Tem duas pastas principais, que são:
 1. [SRC](./src)
     - [Executar](./src/Executar.java)
     <br> 
-    Ficheiro onde deve correr o programa, ou seja, é o `main` do projecto ;
+    Ficheiro onde deve correr o programa, ou seja, é o **main** do projecto ;
 
     - [analysis](./src/analysis/) 
     <br> 
-    Pasta onde vai se tratar de tudo que seja analises. Que serão: `Lexica` , `Sintatica` , `Semantica` ;
+    Pasta onde vai se tratar de tudo que seja analises. Que serão: **Lexica** , **Sintatica** , **Semantica** ;
 
     - [constants](./src/constants/)
     <br>
-    Pasta onde terão as listas de várias constantes tais como palavras reservadas do `Java` ;
+    Pasta onde terão as listas de várias constantes tais como palavras reservadas do **Java** ;
 
     - [functions](./src/functions/)
     <br>
@@ -35,7 +35,7 @@ Tem duas pastas principais, que são:
 2. [DOCS](./docs/)
     - [classificacao](./docs/classificacao/)
     <br>
-    Aqui tem todas as `palavras` e `simbolos` que existem por defeito do `Java` dentro das as suas respectivas classificações em texto ;
+    Aqui tem todas as **palavras** e **simbolos** que existem por defeito do **Java** dentro das as suas respectivas classificações em texto ;
     - [programs](./docs/programs/)
     <br>
     Aqui tem exemplares de programas para poder ser compilado pelo o programa.
