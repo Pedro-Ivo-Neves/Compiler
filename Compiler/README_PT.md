@@ -1,6 +1,6 @@
 # Compilador
 
-Este é um projecto da faculdade que é para fazer um compilador do 0. A linguagem usada é **_Java_** e estou a fazer um compilador para a linguagem **_Java_**.
+Este é um projecto da faculdade que é para fazer um compilador do 0. A linguagem usada é Java e estou a fazer um compilador para a linguagem Java.
 
 <br>
 
@@ -10,15 +10,15 @@ Tem duas pastas principais, que são:
 1. [SRC](./src)
     - [Executar](./src/Executar.java)
     <br> 
-    Ficheiro onde deve correr o programa, ou seja, é o **_main_** do projecto ;
+    Ficheiro onde deve correr o programa, ou seja, é o main do projecto ;
 
     - [analysis](./src/analysis/) 
     <br> 
-    Pasta onde vai se tratar de tudo que seja analises. Que serão: **_Lexica_** , **_Sintatica_** , **_Semantica_** ;
+    Pasta onde vai se tratar de tudo que seja analises. Que serão: Lexica , Sintatica , Semantica ;
 
     - [constants](./src/constants/)
     <br>
-    Pasta onde terão as listas de várias constantes tais como palavras reservadas do **_Java_** ;
+    Pasta onde terão as listas de várias constantes tais como palavras reservadas do Java ;
 
     - [functions](./src/functions/)
     <br>
@@ -35,7 +35,8 @@ Tem duas pastas principais, que são:
 2. [DOCS](./docs/)
     - [classificacao](./docs/classificacao/)
     <br>
-    Aqui tem todas as **palavras** e **simbolos** que existem por defeito do **_Java_** dentro das as suas respectivas classificações em texto ;
+    Aqui tem todas as palavras e simbolos que existem por defeito do Java dentro das as suas respectivas classificações em texto ;
+
     - [programs](./docs/programs/)
     <br>
     Aqui tem exemplares de programas para poder ser compilado pelo o programa.
@@ -44,6 +45,4 @@ Tem duas pastas principais, que são:
 
 ## Tecnologias
 
-![Vs Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
-
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Vs Code](https://img.shields.io/badge/VisualStudioCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white) ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
