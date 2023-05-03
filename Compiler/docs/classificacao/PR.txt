@@ -1,2 +1,2 @@
 public,class,abstract,assert,break,switch,case,try,catch,continue,final,do,while,exports,import,enum,extends,default,finally,implements
-instanceof,interface,new,package,private,protected,return,static,super,this,if,else
+instanceof,interface,new,package,private,protected,return,static,super,this,if,else,args
