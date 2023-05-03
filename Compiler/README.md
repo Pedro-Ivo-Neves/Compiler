@@ -1,18 +1,49 @@
-## Getting Started
+# Compiler
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is a college project that is to make a compiler for 0. The language used is `Java` and I am making a compiler for the `Java` language.
 
-## Folder Structure
+<br>
 
-The workspace contains two folders by default, where:
+## Structure
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+It has two main folders, which are:
+1. [SRC](./src)
+    - [Executar](./src/Executar.java)
+    <br> 
+    To execute File where the program should run, that is, it is the project's `main` ;
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+    - [analysis](./src/analysis/) 
+    <br> 
+    Folder where everything that is analyzes will be dealt with. Which will be: `Lexicon` , `Syntax` , `Semantics` ;
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+    - [constants](./src/constants/)
+    <br>
+    Folder containing lists of various constants such as `Java` reserved words ;
 
-## Dependency Management
+    - [functions](./src/functions/)
+    <br>
+    Folder where will have the functions that will be used by the project, such as reading from a text file and much more ;
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+    - [models](./src/models/)
+    <br>
+    Here it will have everything to do with the project's models, that is, objects and enums ;
+
+    - [views](./src/views/)
+    <br>
+    Here you will have the various ways of viewing information. It can be through tables, etc.
+
+2. [DOCS](./docs/)
+    - [classificacao](./docs/classificacao/)
+    <br>
+    Here you have all the `words` and `symbols` that exist by default in `Java` in their respective text classifications ;
+    - [programs](./docs/programs/)
+    <br>
+    Here are examples of programs to be compiled by the program.
+
+<br>
+
+## Technologies
+
+![Vs Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
