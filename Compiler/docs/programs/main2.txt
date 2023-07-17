@@ -1,0 +1,5 @@
+public class Main {
+    public void Main ( int n ) {
+        int a = 9 
+    }
+}
