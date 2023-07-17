@@ -9,18 +9,22 @@ public class LexicalAnalysis {
 
     public LexicalAnalysis(LinkedList<Token_Model> listaPalavras){
         this.tokenList = listaPalavras;
-        lexicalMap();
+        // lexicalMap();
     }
 
-    private void lexicalMap(){
+    // private void lexicalMap(){
 
-        tokenList.forEach((token)->{
+    //     tokenList.forEach((token)->{
             
             
-        });
-    }
+    //     });
+    // }
 
     public void lexicalTable(){
         new TablesView().TokenTableView(this.tokenList);
+    }
+
+    public void identifierList(){
+
     }
 }
