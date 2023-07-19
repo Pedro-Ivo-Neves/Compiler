@@ -1,13 +1,18 @@
 package analysis;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import javax.lang.model.element.Name;
+
 import analysis.exception.*;
+import models.Token_Enum;
 import models.Token_Model;
+import models.Identifier.Type_Enum;
 
 public class SintaticAnalysis {
     
@@ -34,7 +39,13 @@ public class SintaticAnalysis {
 
         var stack = new Stack<String>();
 
-        for (String token : this.tokens.stream().map(Token_Model::getToken).collect(Collectors.toList())) {
+        for (String token : this.tokens.stream()
+                            .filter(
+                                tk -> tk.getType()!=Token_Enum.CLI
+                                )
+                            .map(Token_Model::getToken)
+                            .collect(Collectors.toList())
+            ) {
             if(token.equals(c+"")){
                 stack.push(c+"");
             }
@@ -61,29 +72,38 @@ public class SintaticAnalysis {
     public void checkClass(){
         String NameExp = "[A-Za-z]\\w*";
 
+        String ScopeExp = "(public|private|protected){0,1}\\s*(final){0,1}\\s*";
+
         
         //* Functions */
         String ParamsExp = "(\\(\\)|\\((int|float|String|char|double)\\s*"+NameExp+"(,{1}\\s*(int|float|String|char|double)\\s*"+NameExp+")*\\))";
         
-        String FloatFuncExp = "";
-        String IntFuncExp = "";
-        String VoidFuncExp = "\\s*void{0,1}\\s*"+NameExp+"\\s*"+ParamsExp+"\\{\\}";
-        String FunctionExp = "(public|private|protected){0,1}\\s*(final){0,1}\\s*("+VoidFuncExp+")\\s*";
+        String FloatFuncExp = "\\s*float\\s*"+NameExp+"\\s*"+ParamsExp+"\\s*\\{\\s*(return\\s*([0-9]+(\\.[0-9]+){0,1}|"+NameExp+")\\s*;){1}\\s*\\}";
+        String IntFuncExp = "\\s*int\\s*"+NameExp+"\\s*"+ParamsExp+"\\s*\\{\\s*(return\\s*([0-9]+|"+NameExp+")\\s*;){1}\\s*\\}";
+        String VoidFuncExp = "\\s*void{0,1}\\s*"+NameExp+"\\s*"+ParamsExp+"\\s*\\{\\s*(return\\s*;){0,1}\\s*\\}";
+        
+        String FunctionExp = ScopeExp+"("+VoidFuncExp+"|"+IntFuncExp+"|"+FloatFuncExp+")\\s*";
+        
+        
         
         //* Declarations */
-        String IntDeclareExp = "int\\s*"+NameExp+"(,"+NameExp+"|={1}([0-9]+|"+NameExp+"){1})*";
-        String FloatDeclareExp = "float\\s*"+NameExp+"(,"+NameExp+"|={1}([0-9]+(\\.[0-9]+){0,1}|"+NameExp+"){1})*";
+        String VarQualquerExp = "ex: n=2; |  this.l = 3;";
+        String StringDeclareExp = "String\\s*[A-Za-z]\\w*\\s*(,[A-Za-z]\\w*|\\={1}\\s*(\".\"|[A-Za-z]\\w*){1})*\\s*;";
+        String CharDeclareExp = "char\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*(\\'([^']|\\\\\\')\\'|"+NameExp+"){1})*\\s*;";
+        String IntDeclareExp = "int\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*([0-9]+|"+NameExp+"){1})*";
+        String FloatDeclareExp = "float\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*([0-9]+(\\.[0-9]+){0,1}|"+NameExp+"){1})*";
+
+        String DeclarativeExp = ScopeExp+"("+IntDeclareExp+"|"+FloatDeclareExp+"|"+CharDeclareExp+"|"+StringDeclareExp+")\\s*;";
+    
+
         
-        String DeclarativeExp ="(public|private|protected){0,1}\\s*(final){0,1}\\s*("+IntDeclareExp+"|"+FloatDeclareExp+")\\s*;";
-        
-        //* Class Body */
-        String ClassBodyExp = "(\\s|"+DeclarativeExp+"|"+FunctionExp+")";
         
         //* Classes */
-        String ClassExp = "public\\s+class\\s+"+NameExp+"\\s*\\{"+ClassBodyExp+"*}\\s*";
+        String ClassExp = "("+ScopeExp+"class\\s+"+NameExp+"\\s*\\{(\\s|"+DeclarativeExp+"|"+FunctionExp+")*}\\s*)*";
+        
 
         //* Final Regex */
-        final String regex = "public\\s+class\\s+"+NameExp+"\\s*\\{"+ClassBodyExp+"*}\\s*";
+        final String regex = "("+ScopeExp+"class\\s+"+NameExp+"\\s*\\{(\\s|"+DeclarativeExp+"|"+FunctionExp+"|"+ClassExp+")*}\\s*)+";
 
 
 
@@ -96,6 +116,7 @@ public class SintaticAnalysis {
             throw new SintaticalException("Class has sintax error!");
         }
     }
+
 
 
 }
