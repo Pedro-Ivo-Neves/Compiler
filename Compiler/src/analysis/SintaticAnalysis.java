@@ -1,18 +1,14 @@
 package analysis;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import javax.lang.model.element.Name;
-
 import analysis.exception.*;
 import models.Token_Enum;
 import models.Token_Model;
-import models.Identifier.Type_Enum;
 
 public class SintaticAnalysis {
     
@@ -26,13 +22,14 @@ public class SintaticAnalysis {
         /*
         *   Balanceamento de {}
         *   Balanceamento de ()
-        *   
+        *   Sintax de todo o Fihceiro
         */
 
         this.checkBalancedBrackets('{','}');
         this.checkBalancedBrackets('(', ')');
-        System.out.println("\n-------Test-------");
+        System.out.println("\n-------Analise Sintatica-------");
         this.checkClass();
+        System.out.println("-------------------------------");
     }
 
     public void checkBalancedBrackets(char c, char d){
@@ -89,7 +86,7 @@ public class SintaticAnalysis {
         //* Declarations */
         
         //! Ainda Nao funciona !/
-        String VarQualquerExp = "ex: n=2; |  this.l = 3;";
+        // String VarQualquerExp = "ex: n=2; |  this.l = 3;";
         String StringDeclareExp = "String\\s*[A-Za-z]\\w*\\s*(,[A-Za-z]\\w*|\\={1}\\s*(\".\"|[A-Za-z]\\w*){1})*\\s*;";
         String CharDeclareExp = "char\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*(\\'([^']|\\\\\\')\\'|"+NameExp+"){1})*\\s*;";
         
@@ -97,7 +94,7 @@ public class SintaticAnalysis {
         String IntDeclareExp = "int\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*([0-9]+|"+NameExp+"){1})*";
         String FloatDeclareExp = "float\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*([0-9]+(\\.[0-9]+){0,1}|"+NameExp+"){1})*";
 
-        String DeclarativeExp = ScopeExp+"("+IntDeclareExp+"|"+FloatDeclareExp+"|"+CharDeclareExp+"|"+StringDeclareExp+")\\s*;";
+        String DeclarativeExp = ScopeExp+"("+IntDeclareExp+"|"+FloatDeclareExp+"|"+CharDeclareExp+"|"+StringDeclareExp+")\\s*;{1,}";
     
 
         
@@ -115,12 +112,10 @@ public class SintaticAnalysis {
         final Matcher matcher = pattern.matcher(rawCode);
         
         if(matcher.matches()){
-            System.out.println("Sucesso!");
+            System.out.println("|   Correu com muito Sucesso! |");
         } else{
             throw new SintaticalException("Class has sintax error!");
         }
     }
-
-
 
 }

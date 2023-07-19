@@ -14,7 +14,9 @@ public class Executar {
         new KeyWords();
         new LexicalAnalysis(".\\docs\\programs\\main4.java")
             // .lexicalTable()
-            // .identifierList()
-            .sintaticAnalise();
+            .identifierList();
+            // .sintaticAnalise();
+
+        System.out.println("\n");
     }
 }

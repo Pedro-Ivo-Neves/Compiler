@@ -61,7 +61,7 @@ public class FilesFunc {
         if(matcher.find()){
             returnString = matcher.replaceAll("");
         }
-        
+        System.out.println("\n\n");
         System.out.println("Codigo: \n"+returnString);
         return returnString;
     }
