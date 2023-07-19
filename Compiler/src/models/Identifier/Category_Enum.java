@@ -2,10 +2,11 @@ package models.Identifier;
 
 public enum Category_Enum {
     
-    CLASS("class"),
-    FUNC("function"),
-    PARAM("parameter"),
-    VAR("variable");
+    CLASS("Class"),
+    FUNC("Function"),
+    PARAM("Parameter"),
+    CONST("Constante"),
+    VAR("Variable");
 
     Category_Enum(String category){}
 }

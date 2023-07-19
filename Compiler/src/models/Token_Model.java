@@ -1,5 +1,6 @@
 package models;
 
+import analysis.exception.LexicalException;
 import constants.KeyWords;
 
 public class Token_Model{
@@ -17,6 +18,13 @@ public class Token_Model{
     }
 
     public String getToken() {return this.token;}
+
+    public Token_Model setToken(String token){
+        this.token = token;
+        //! Coloquei como CN porque so na constante numerica e que ira mudar isto
+        this.typeToken = Token_Enum.CN;
+        return this;
+    }
 
     public int getLineIndex() {return this.lineIndex;}
 
@@ -46,10 +54,22 @@ public class Token_Model{
                     this.typeToken = Token_Enum.PR;
                 } else{
                     if(KeyWords.constantesLogicas.contains(this.token)){
+                        
                         this.typeToken = Token_Enum.CL;
                     } else{
-                        if(KeyWords.constantesNumericas.contains(this.token)){
-                            this.typeToken = Token_Enum.CN;
+                        if(KeyWords.constantesNumericas.contains(this.token.charAt(0)+"")){
+                            if(this.token.contains(".")){
+                                if(this.token.matches("[0-9]+.{1}[0-9]*")){
+                                    //* Verifica se somente tem um . */
+                                    this.typeToken = Token_Enum.CNF;
+                                }
+                                else{
+                                    throw new LexicalException("Invalid Floting Number");
+                                }
+                            } else{
+                                //* Numerico pois nao possui . */
+                                this.typeToken = Token_Enum.CN;
+                            }
                         } else{
                             if(this.token.charAt(0)=='"' && this.token.charAt(this.token.length()-1)=='\"'){
                                 this.typeToken = Token_Enum.CLI;

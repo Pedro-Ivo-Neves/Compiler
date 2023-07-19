@@ -1,6 +1,6 @@
 package analysis.exception;
 
-public class LexicalException extends RuntimeException{
+public class LexicalException extends Error{
     
     public LexicalException(){
         super();

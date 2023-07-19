@@ -9,7 +9,7 @@ public enum Type_Enum {
     FLOAT("float"),
     LONG("long"),
     BOOL("boolean"),
-    VOID("void")
+    VOID("void") //? Only for FUNC
     ;
 
     Type_Enum(String type){}

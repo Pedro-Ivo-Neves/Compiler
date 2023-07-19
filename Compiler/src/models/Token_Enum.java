@@ -6,12 +6,13 @@ public enum Token_Enum {
     TP("Tipo primitivo"),
     // SE("Simbolo Especial"),
 
-    DL("Delimitadores"),
-    SL("Simbolos Logicos"),
-    SN("Simbolos Numericos"),
-    CN("Constantes Numericas"),
-    CL("Constantes Logicas"),
-    CLI("Constantes Literarias"),
+    DL("Delimitadore"),
+    SL("Simbolo Logico"),
+    SN("Simbolo Numerico"),
+    CN("Constante Numerica"),
+    CNF("Contante Numerica Flotoante"),
+    CL("Constante Logicas"),
+    CLI("Constante Literaria"),
 
     ID("Indicador");
 

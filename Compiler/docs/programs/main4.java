@@ -1,14 +1,10 @@
-public class main4 {
-    public static void main ( String [] args ) {
-        String l="0";
+public class le4 { 
+    int f;
 
-        boolean f = false;
+    final void f(){}
+    /*
+     awaw
+     */
 
-        int e = 1;
-    }
-
-    /*private int lol(int n){
-        return n;
-    }
-    */
+    private final int l=05555;
 }
