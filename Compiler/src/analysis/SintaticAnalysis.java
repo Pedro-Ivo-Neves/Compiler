@@ -87,9 +87,13 @@ public class SintaticAnalysis {
         
         
         //* Declarations */
+        
+        //! Ainda Nao funciona !/
         String VarQualquerExp = "ex: n=2; |  this.l = 3;";
         String StringDeclareExp = "String\\s*[A-Za-z]\\w*\\s*(,[A-Za-z]\\w*|\\={1}\\s*(\".\"|[A-Za-z]\\w*){1})*\\s*;";
         String CharDeclareExp = "char\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*(\\'([^']|\\\\\\')\\'|"+NameExp+"){1})*\\s*;";
+        
+        //* Funciona! */
         String IntDeclareExp = "int\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*([0-9]+|"+NameExp+"){1})*";
         String FloatDeclareExp = "float\\s*"+NameExp+"\\s*(,\\s*"+NameExp+"|\\={1}\\s*([0-9]+(\\.[0-9]+){0,1}|"+NameExp+"){1})*";
 
