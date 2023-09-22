@@ -59,6 +59,7 @@ public class FilesFunc {
         final Pattern pattern = Pattern.compile("/\\*(.|\\s*)*\\*/", Pattern.MULTILINE);
         final Matcher matcher = pattern.matcher(returnString);
         if(matcher.find()){
+            System.out.println("Entrou");
             returnString = matcher.replaceAll("");
         }
         System.out.println("\n\n");

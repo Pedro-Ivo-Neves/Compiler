@@ -27,7 +27,7 @@ public class SintaticAnalysis {
 
         this.checkBalancedBrackets('{','}');
         this.checkBalancedBrackets('(', ')');
-        System.out.println("\n-------Analise Sintatica-------");
+        System.out.println("\n-------\033[33mAnalise Sintatica\033[0m-------");
         this.checkClass();
         System.out.println("-------------------------------");
     }

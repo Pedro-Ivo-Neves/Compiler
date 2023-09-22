@@ -10,6 +10,11 @@ public class TablesView {
     public TablesView(){}
 
     public void TokenTableView(LinkedList<Token_Model> tokens){
+        System.out.println("\n\n");
+        System.out.println("==========================================================");
+        System.out.println("|                   \033[34mTabela de Lexemas\033[0m                   |");
+        System.out.println("==========================================================");
+
         System.out.println("=======================================================================");
         System.out.println("|    \033[36mTOKEN\033[0m    |    \033[35mCLASSIFICACAO\033[0m   |    \033[32mNr Linha\033[0m    |    \033[31mNr Coluna\033[0m    |");
         System.out.println("=======================================================================");
@@ -23,6 +28,11 @@ public class TablesView {
     }
 
     public void TokenTableIDView(LinkedList<Identifier_Model> ids){
+        System.out.println("\n\n");
+        System.out.println("==========================================================");
+        System.out.println("|                   \033[34mTabela de Simbolos\033[0m                   |");
+        System.out.println("==========================================================");
+
         System.out.println("===========================================================");
         System.out.println("|    \033[36mTOKEN\033[0m    |    \033[35mCATEGORIA\033[0m   |    \033[32mTIPO\033[0m    |    \033[31mVALUE\033[0m    |");
         System.out.println("===========================================================");
